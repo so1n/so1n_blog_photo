@@ -71,15 +71,17 @@ def compress_photo():
     '''调用压缩图片的函数
     '''
     src_dir, des_dir = "photos/", "min_photos/"
-    
-    if directory_exists(src_dir):
-        if not directory_exists(src_dir):
-            make_directory(src_dir)
+
+    if not directory_exists(src_dir):
+        make_directory(src_dir)
+    else:
         # business logic
         file_list_src = list_img_file(src_dir)
-    if directory_exists(des_dir):
-        if not directory_exists(des_dir):
-            make_directory(des_dir)
+    if not directory_exists(des_dir):
+        print("aaaaaaaaaa")
+        make_directory(des_dir)
+    else:     
+        print("aaaaaaaaaabbbbbbbbbbb")
         file_list_des = list_img_file(des_dir)
         print(file_list_des)
     '''如果已经压缩了，就不再压缩'''
@@ -138,8 +140,6 @@ def cut_photo():
     """
     src_dir = "photos/"
     if directory_exists(src_dir):
-        if not directory_exists(src_dir):
-            make_directory(src_dir)
         # business logic
         file_list = list_img_file(src_dir)
         # print(file_list)
